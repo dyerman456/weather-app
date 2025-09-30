@@ -9,9 +9,9 @@ type WeatherTitle = {
 
 export const WeatherTitle = (props: WeatherTitle) => {
   const {weatherTitle} = props
-  let weatherTitleIcon = ''
+  let weatherTitleIcon
 
-  if (weatherTitle === 'clear') {
+  if (weatherTitle === 'Clear') {
     weatherTitleIcon = clearDayIcon
   }
   if (weatherTitle === 'Overcast') {
@@ -25,9 +25,9 @@ export const WeatherTitle = (props: WeatherTitle) => {
   }
 
   return (
-    <>
+    <span>
       <img src={weatherTitleIcon} alt='icon'/>
       <p>{weatherTitle}</p>
-    </>
+    </span>
   )
 }
