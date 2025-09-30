@@ -47,5 +47,8 @@
     "overrides": {
       "eslint-plugin-react": "7.37.2"
     }
+  },
+  "devDependencies": {
+    "prettier": "3.6.2"
   }
 }

@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8062642d-745d-4957-abd0-282a96c5eb47" name="Changes" comment="feat: add icons for every hour. Add sunrise">
+    <list default="true" id="8062642d-745d-4957-abd0-282a96c5eb47" name="Changes" comment="refactor: create WeatherForecast, WeatherWidget, TemperatureNow and WeatherTitle components">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/City.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/City.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Temperature.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TemperatureNow.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/WeatherTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WeatherTitle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/icons/clear-day.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/icons/clear-day.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/icons/cloudy.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/icons/cloudy.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/icons/partly-cloudy.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/icons/partly-cloudy.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/icons/rainy.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/icons/rainy.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/icons/sunrise.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/icons/sunrise.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +101,7 @@
       <workItem from="1759172635043" duration="2548000" />
       <workItem from="1759195698075" duration="6032000" />
       <workItem from="1759205975648" duration="2056000" />
-      <workItem from="1759239707765" duration="5202000" />
+      <workItem from="1759239707765" duration="6619000" />
     </task>
     <task id="LOCAL-00001" summary="chore: update dependencies and remove unused asset">
       <option name="closed" value="true" />
@@ -143,7 +135,23 @@
       <option name="project" value="LOCAL" />
       <updated>1759206106071</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="refactor: update icons, add sunrise icon">
+      <option name="closed" value="true" />
+      <created>1759246146107</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1759246146107</updated>
+    </task>
+    <task id="LOCAL-00006" summary="refactor: create WeatherForecast, WeatherWidget, TemperatureNow and WeatherTitle components">
+      <option name="closed" value="true" />
+      <created>1759246304806</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759246304806</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +162,8 @@
     <MESSAGE value="feat: add weather icons" />
     <MESSAGE value="feat: add City, Temperature and WeatherTitle components" />
     <MESSAGE value="feat: add icons for every hour. Add sunrise" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add icons for every hour. Add sunrise" />
+    <MESSAGE value="refactor: update icons, add sunrise icon" />
+    <MESSAGE value="refactor: create WeatherForecast, WeatherWidget, TemperatureNow and WeatherTitle components" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: create WeatherForecast, WeatherWidget, TemperatureNow and WeatherTitle components" />
   </component>
 </project>

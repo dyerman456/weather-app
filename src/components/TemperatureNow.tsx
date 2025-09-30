@@ -1,12 +1,9 @@
 type TemperatureType = {
-  temperature: number
-}
+  temperature: number;
+};
 
 export const TemperatureNow = (props: TemperatureType) => {
+  const { temperature } = props;
 
-  const {temperature} = props
-
-  return (
-    <p>{`${temperature}°`}</p>
-  )
-}
+  return <h2 className='city-temperature'>{`${temperature}°`}</h2>;
+};
