@@ -1,14 +1,7 @@
-import {Temperature} from "./Temperature";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {WeatherTitle} from "./WeatherTitle";
 import {v1} from "uuid";
-
-import clearDayIcon from '../img/icons/clear-day.svg'
-import cloudyIcon from '../img/icons/cloudy.svg'
-import partlyCloudyIcon from '../img/icons/partly-cloudy.svg'
-import rainyIcon from '../img/icons/rainy.svg'
-import sunriseIcon from  '../img/icons/sunrise.svg'
+import {WeatherWidget} from "./WeatherWidget";
 
 type CityType = {
   name: string
@@ -28,7 +21,8 @@ type DataResponseType = {
       conditions: string,
       temp: number
     }>
-    sunrise: string
+    sunrise: string,
+    sunset: string
   }>
 }
 
@@ -38,6 +32,15 @@ export type WeatherForecastType = {
   weatherTitle: string
   temperature: number
   isSunriseTime: boolean
+  isSunsetTime: boolean
+}
+
+export type WeatherWidgetDataType = {
+  loading: boolean,
+  error: boolean,
+  temperature: number,
+  weatherTitle: string,
+  weatherForecast: WeatherForecastType[]
 }
 
 export const City = (props: CityType) => {
@@ -45,11 +48,13 @@ export const City = (props: CityType) => {
   const {name, coordinates} = props
   const [latitude, longitude] = coordinates
 
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
-  const [temperature, setTemperature] = useState(1)
-  const [weatherTitle, setWeatherTitle] = useState('')
-  const [weatherForecast, setWeatherForecast] = useState<WeatherForecastType[]>([])
+  const [weatherWidgetData, setWeatherWidgetData] = useState<WeatherWidgetDataType>({
+    loading: true,
+    error: false,
+    temperature: 0,
+    weatherTitle: '',
+    weatherForecast: []
+  })
 
   useEffect(() => {
 
@@ -57,6 +62,8 @@ export const City = (props: CityType) => {
 
     axios.get<DataResponseType>(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${latitude},${longitude}?key=${process.env.REACT_APP_API_KEY}&unitGroup=metric`, {signal: controller.signal})
       .then(res => {
+
+        console.log(name)
         console.log(res)
 
         const dateNow = new Date()
@@ -67,78 +74,87 @@ export const City = (props: CityType) => {
         })
         const hourNow = formatter.format(dateNow)
 
-        console.log(hourNow)
-
+        let firstDay = res.data.days[0]
+        let secondDay = res.data.days[1]
         let localForecast: WeatherForecastType[] = []
 
-        res.data.days[0].hours.forEach(el => {
-          if (el.datetime.slice(0, 2) >= hourNow) {
-            localForecast.push({index: v1(), time: el.datetime.slice(0, 2), weatherTitle: el.conditions, temperature: Math.floor(el.temp), isSunriseTime: false})
+        firstDay.hours.forEach(el => {
+
+          let currentHour = el.datetime.slice(0, 2)
+
+          if (currentHour >= hourNow) {
+            localForecast.push({
+              index: v1(),
+              time: currentHour,
+              weatherTitle: el.conditions,
+              temperature: Math.floor(el.temp),
+              isSunriseTime: false,
+              isSunsetTime: false
+            })
           }
-          if (el.datetime.slice(0, 2) === res.data.days[0].sunrise.slice(0, 2)) {
-            localForecast.push({index: v1(), time: res.data.days[0].sunrise.slice(0, 5), weatherTitle: el.conditions, temperature: Math.floor(el.temp), isSunriseTime: true})
+
+          if (currentHour === firstDay.sunrise.slice(0, 2)) {
+            localForecast.push({
+              index: v1(),
+              time: firstDay.sunrise.slice(0, 5),
+              weatherTitle: el.conditions,
+              temperature: Math.floor(el.temp),
+              isSunriseTime: true,
+              isSunsetTime: false
+            })
+          } else if (currentHour === firstDay.sunset.slice(0, 2)) {
+            localForecast.push({
+              index: v1(),
+              time: firstDay.sunset.slice(0, 5),
+              weatherTitle: el.conditions,
+              temperature: Math.floor(el.temp),
+              isSunriseTime: false,
+              isSunsetTime: true
+            })
           }
         })
 
-        res.data.days[1].hours.forEach((el) => {
+        secondDay.hours.forEach((el) => {
           if (localForecast.length < 24) {
-            localForecast.push({index: v1(), time: el.datetime.slice(0, 2), weatherTitle: el.conditions, temperature: Math.floor(el.temp), isSunriseTime: false})
+            localForecast.push({
+              index: v1(),
+              time: el.datetime.slice(0, 2),
+              weatherTitle: el.conditions,
+              temperature: Math.floor(el.temp),
+              isSunriseTime: false,
+              isSunsetTime: false
+            })
           }
         })
 
-        setWeatherForecast(localForecast)
-
-        setTemperature(Math.floor(res.data.days[0].hours[Number(hourNow)].temp))
-        setWeatherTitle(res.data.currentConditions.conditions)
-
+        setWeatherWidgetData(prev => ({
+          ...prev,
+          temperature: Math.floor(firstDay.hours[Number(hourNow)].temp),
+          weatherTitle: res.data.currentConditions.conditions,
+          weatherForecast: localForecast
+        }))
       })
       .catch(err => {
-        setError(err)
+        setWeatherWidgetData(prev => ({...prev, error: err}))
       })
-      .finally(() => setLoading(false))
-
+      .finally(() => setWeatherWidgetData(prev => ({...prev, loading: false})))
 
     return () => controller.abort()
   }, []);
 
-  if (loading) {
+  if (weatherWidgetData.loading) {
     return (
       <p>Loading...</p>
     )
   }
 
-  if (error) {
+  if (weatherWidgetData.error) {
     return (
-      <p>{error}</p>
+      <p>{weatherWidgetData.error}</p>
     )
   }
 
   return (
-    <div className="city">
-      <h1>{name}</h1>
-      <Temperature temperature={temperature}/>
-      <WeatherTitle weatherTitle={weatherTitle}/>
-      <div>
-        <div className="weather-forecast">
-          {weatherForecast.map(el => {
-            return (
-              <span key={el.index}>
-                <>{el.time} </>
-                <p>
-                  <img src={el.isSunriseTime ? sunriseIcon
-                    : el.weatherTitle === 'Clear' ? clearDayIcon
-                    : el.weatherTitle === 'Overcast' ? cloudyIcon
-                      : el.weatherTitle === 'Partially cloudy' ? partlyCloudyIcon
-                        : el.weatherTitle === 'Rain' ? rainyIcon
-                          : '???'
-                  } alt='icon'/>
-                </p>
-                <p>{el.temperature}°C</p>
-              </span>
-            )
-          })}
-        </div>
-      </div>
-    </div>
+    <WeatherWidget name={name} weatherWidgetData={weatherWidgetData}/>
   )
 }

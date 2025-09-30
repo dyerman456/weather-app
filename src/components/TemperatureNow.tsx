@@ -2,7 +2,7 @@ type TemperatureType = {
   temperature: number
 }
 
-export const Temperature = (props: TemperatureType) => {
+export const TemperatureNow = (props: TemperatureType) => {
 
   const {temperature} = props
 

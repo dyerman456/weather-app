@@ -1,27 +1,22 @@
-import clearDayIcon from '../img/icons/clear-day.svg'
-import cloudyIcon from '../img/icons/cloudy.svg'
-import partlyCloudyIcon from '../img/icons/partly-cloudy.svg'
-import rainyIcon from '../img/icons/rainy.svg'
-
 type WeatherTitle = {
   weatherTitle: string
+  weatherConditions: Record<string, string>
 }
 
 export const WeatherTitle = (props: WeatherTitle) => {
-  const {weatherTitle} = props
-  let weatherTitleIcon
+  const {weatherTitle, weatherConditions} = props
 
-  if (weatherTitle === 'Clear') {
-    weatherTitleIcon = clearDayIcon
-  }
-  if (weatherTitle === 'Overcast') {
-    weatherTitleIcon = cloudyIcon
-  }
-  if (weatherTitle === 'Partially cloudy') {
-    weatherTitleIcon = partlyCloudyIcon
-  }
-  if (weatherTitle === 'Rain') {
-    weatherTitleIcon = rainyIcon
+  let weatherTitleIcon
+  let mainWeatherCondition = weatherTitle.split(",")[0]
+
+  if (mainWeatherCondition === 'Clear') {
+    weatherTitleIcon = weatherConditions.clearDayIcon
+  } else if (mainWeatherCondition === 'Overcast') {
+    weatherTitleIcon = weatherConditions.cloudyIcon
+  } else if (mainWeatherCondition === 'Partially cloudy') {
+    weatherTitleIcon = weatherConditions.partlyCloudyIcon
+  } else if (mainWeatherCondition === 'Rain') {
+    weatherTitleIcon = weatherConditions.rainyIcon
   }
 
   return (
