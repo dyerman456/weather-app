@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8062642d-745d-4957-abd0-282a96c5eb47" name="Changes" comment="feat: add prettier. Also made minor design improvements">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/City.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/City.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WeatherTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WeatherTitle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WeatherWidget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WeatherWidget.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dyerman456&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dyerman456/weather-app.git&quot;,
+    &quot;accountId&quot;: &quot;fd5e51e2-2ac1-46e4-9099-3d2612e110a8&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="33NcI7ZPapUWQ9ZtB9gZemBJLjH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/denis/Documents/weather-app/src/img/icons&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/denis/Documents/weather-app/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/denis/Documents/weather-app/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/img/icons" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/img/icons" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-WS-251.26094.131" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8062642d-745d-4957-abd0-282a96c5eb47" name="Changes" comment="" />
+      <created>1759160887683</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1759160887683</updated>
+      <workItem from="1759160889032" duration="1927000" />
+      <workItem from="1759172635043" duration="2548000" />
+      <workItem from="1759195698075" duration="6032000" />
+      <workItem from="1759205975648" duration="2056000" />
+      <workItem from="1759239707765" duration="6619000" />
+      <workItem from="1759267121807" duration="8415000" />
+      <workItem from="1759291258673" duration="2419000" />
+      <workItem from="1759335777415" duration="512000" />
+    </task>
+    <task id="LOCAL-00001" summary="chore: update dependencies and remove unused asset">
+      <option name="closed" value="true" />
+      <created>1759161420381</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1759161420381</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: add weather icons">
+      <option name="closed" value="true" />
+      <created>1759161485223</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1759161485223</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: add City, Temperature and WeatherTitle components">
+      <option name="closed" value="true" />
+      <created>1759161575543</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1759161575543</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: add icons for every hour. Add sunrise">
+      <option name="closed" value="true" />
+      <created>1759206106071</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1759206106071</updated>
+    </task>
+    <task id="LOCAL-00005" summary="refactor: update icons, add sunrise icon">
+      <option name="closed" value="true" />
+      <created>1759246146107</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1759246146107</updated>
+    </task>
+    <task id="LOCAL-00006" summary="refactor: create WeatherForecast, WeatherWidget, TemperatureNow and WeatherTitle components">
+      <option name="closed" value="true" />
+      <created>1759246304806</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759246304806</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix: correct sunrise and sunset display">
+      <option name="closed" value="true" />
+      <created>1759275515636</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1759275515636</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: add prettier. Also made minor design improvements">
+      <option name="closed" value="true" />
+      <created>1759275672069</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1759275672069</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: update dependencies and remove unused asset" />
+    <MESSAGE value="feat: add weather icons" />
+    <MESSAGE value="feat: add City, Temperature and WeatherTitle components" />
+    <MESSAGE value="feat: add icons for every hour. Add sunrise" />
+    <MESSAGE value="refactor: update icons, add sunrise icon" />
+    <MESSAGE value="refactor: create WeatherForecast, WeatherWidget, TemperatureNow and WeatherTitle components" />
+    <MESSAGE value="fix: correct sunrise and sunset display" />
+    <MESSAGE value="feat: add prettier. Also made minor design improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add prettier. Also made minor design improvements" />
+  </component>
+</project>
