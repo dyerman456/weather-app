@@ -23,6 +23,8 @@ type DataResponseType = {
     }>;
     sunrise: string;
     sunset: string;
+    tempmax: number;
+    tempmin: number
   }>;
 };
 
@@ -39,6 +41,8 @@ export type WeatherWidgetDataType = {
   loading: boolean;
   error: boolean;
   temperature: number;
+  minTemperature: null | number
+  maxTemperature: null | number,
   weatherTitleText: string;
   weatherForecast: WeatherForecastType[];
 };
@@ -52,8 +56,10 @@ export const City = (props: CityType) => {
       loading: true,
       error: false,
       temperature: 0,
+      minTemperature: null,
+      maxTemperature: null,
       weatherTitleText: '',
-      weatherForecast: [],
+      weatherForecast: []
     });
 
   useEffect(() => {
@@ -62,7 +68,7 @@ export const City = (props: CityType) => {
     axios
       .get<DataResponseType>(
         `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${latitude},${longitude}?key=${process.env.REACT_APP_API_KEY}&unitGroup=metric`,
-        { signal: controller.signal },
+        { signal: controller.signal }
       )
       .then((res) => {
         console.log(name);
@@ -72,7 +78,7 @@ export const City = (props: CityType) => {
         const formatter = new Intl.DateTimeFormat('en-GB', {
           timeZone: res.data.timezone,
           hour: '2-digit',
-          hour12: false,
+          hour12: false
         });
         const hourNow = formatter.format(dateNow);
         console.log(hourNow);
@@ -91,7 +97,7 @@ export const City = (props: CityType) => {
               weatherTitle: el.conditions,
               temperature: Math.floor(el.temp),
               isSunriseTime: false,
-              isSunsetTime: false,
+              isSunsetTime: false
             });
           }
 
@@ -105,7 +111,7 @@ export const City = (props: CityType) => {
               weatherTitle: el.conditions,
               temperature: Math.floor(el.temp),
               isSunriseTime: true,
-              isSunsetTime: false,
+              isSunsetTime: false
             });
           } else if (
             currentHour === firstDay.sunset.slice(0, 2) &&
@@ -117,7 +123,7 @@ export const City = (props: CityType) => {
               weatherTitle: el.conditions,
               temperature: Math.floor(el.temp),
               isSunriseTime: false,
-              isSunsetTime: true,
+              isSunsetTime: true
             });
           }
         });
@@ -132,7 +138,7 @@ export const City = (props: CityType) => {
               weatherTitle: el.conditions,
               temperature: Math.floor(el.temp),
               isSunriseTime: false,
-              isSunsetTime: false,
+              isSunsetTime: false
             });
             if (currentHour === secondDay.sunrise.slice(0, 2)) {
               localForecast.push({
@@ -141,7 +147,7 @@ export const City = (props: CityType) => {
                 weatherTitle: el.conditions,
                 temperature: Math.floor(el.temp),
                 isSunriseTime: true,
-                isSunsetTime: false,
+                isSunsetTime: false
               });
             } else if (currentHour === secondDay.sunset.slice(0, 2)) {
               localForecast.push({
@@ -150,7 +156,7 @@ export const City = (props: CityType) => {
                 weatherTitle: el.conditions,
                 temperature: Math.floor(el.temp),
                 isSunriseTime: false,
-                isSunsetTime: true,
+                isSunsetTime: true
               });
             }
           }
@@ -159,15 +165,17 @@ export const City = (props: CityType) => {
         setWeatherWidgetData((prev) => ({
           ...prev,
           temperature: Math.floor(firstDay.hours[Number(hourNow)].temp),
+          minTemperature: Math.floor(firstDay.tempmin),
+          maxTemperature: Math.floor(firstDay.tempmax),
           weatherTitleText: res.data.currentConditions.conditions,
-          weatherForecast: localForecast,
+          weatherForecast: localForecast
         }));
       })
       .catch((err) => {
         setWeatherWidgetData((prev) => ({ ...prev, error: err }));
       })
       .finally(() =>
-        setWeatherWidgetData((prev) => ({ ...prev, loading: false })),
+        setWeatherWidgetData((prev) => ({ ...prev, loading: false }))
       );
 
     return () => controller.abort();

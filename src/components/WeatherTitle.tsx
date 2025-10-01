@@ -1,10 +1,12 @@
 type WeatherTitleType = {
-  weatherTitleText: string;
-  weatherConditions: Record<string, string>;
+  weatherTitleText: string
+  minTemperature: null | number
+  maxTemperature: null | number
+  weatherConditions: Record<string, string>
 };
 
 export const WeatherTitle = (props: WeatherTitleType) => {
-  const { weatherTitleText, weatherConditions } = props;
+  const { weatherTitleText, minTemperature, maxTemperature, weatherConditions } = props;
 
   let weatherTitleIcon;
   let mainWeatherCondition = weatherTitleText.split(',')[0];
@@ -20,9 +22,19 @@ export const WeatherTitle = (props: WeatherTitleType) => {
   }
 
   return (
-    <div className='weather-title'>
-      <img src={weatherTitleIcon} alt='icon' />
-      <p className='weather-title-condition'>{weatherTitleText}</p>
+    <div className="weather-title">
+      <img src={weatherTitleIcon} alt="icon" />
+      <p className="weather-title-condition">{weatherTitleText}</p>
+      <div className="weather-title-temperature">
+        <div className='weather-title-temperature-block'>
+          <img src={weatherConditions.arrowDownIcon} alt='Minimal temperature'/>
+          <p>{minTemperature}°</p>
+        </div>
+        <div className='weather-title-temperature-block'>
+          <img src={weatherConditions.arrowUpIcon} alt='Maximal temperature'/>
+          <p>{maxTemperature}°</p>
+        </div>
+      </div>
     </div>
   );
 };
