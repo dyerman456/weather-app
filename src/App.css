@@ -31,13 +31,14 @@ body,
     rgba(0, 119, 182, 1) 55%,
     rgba(0, 150, 199, 1) 100%
   );
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .city-header {
   display: flex;
   justify-content: space-between;
   line-height: 0.5;
+  padding-bottom: 10px;
 }
 
 .city-temperature {
@@ -51,7 +52,7 @@ body,
   flex-direction: column;
   align-items: flex-end;
   font-size: 24px;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .weather-title img {
@@ -59,8 +60,24 @@ body,
   height: 24px;
 }
 
+.weather-title-temperature {
+  display: flex;
+  column-gap: 20px;
+}
+
+.weather-title-temperature-block {
+  display: flex;
+  align-items: center;
+}
+
+.weather-title-temperature-block p {
+  font-weight: bold;
+  line-height: 0;
+}
+
 .weather-title-condition {
   font-weight: bold;
+  line-height: 0;
 }
 
 .weather-forecast {
